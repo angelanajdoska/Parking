@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="horizontal"
+    tools:context=".ReservationForm">
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.parking.ReservationFormFragment1"
+        android:layout_width="346dp"
+        android:layout_height="363dp"
+        tools:layout="@layout/reservation_form_fragment1" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.parking.ReservationFormFragment2"
+        android:layout_width="301dp"
+        android:layout_height="324dp"
+        tools:layout="@layout/reservation_form_fragment2" />
+
+</LinearLayout>
+</ScrollView>
