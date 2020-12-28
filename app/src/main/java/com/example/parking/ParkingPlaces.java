@@ -1,6 +1,8 @@
 package com.example.parking;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,20 +16,43 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Arrays;
+import com.example.parking.models.Parking_places;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Cities extends AppCompatActivity {
+public class ParkingPlaces  extends AppCompatActivity {
+    List<Parking_places> parkingPlaces;
 
-    public static String username;
+    SQLiteDatabase sql;
+    MyDatabase db;
+    String city, username;
+    String time, date;
     RecyclerView mRecyclerView;
-    MyAdapter mAdapter;
-    int image_id[] ={R.drawable.krushevo, R.drawable.ohrid, R.drawable.skopje};
+    ParkingPlacesAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cities);
+        setContentView(R.layout.parking_places);
+
+        db = new MyDatabase(getApplicationContext());
+        sql = db.getWritableDatabase();
+
+        Intent intent = getIntent();
+        date = intent.getStringExtra("date");
+        time = intent.getStringExtra("time");
+        city = intent.getStringExtra("city");
+        username = intent.getStringExtra("username");
+
+        parkingPlaces = getAllParkingPlaces();
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.parking_places);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mAdapter = new ParkingPlacesAdapter(parkingPlaces, R.layout.parking_places_row, this, city, date, time, username, db);
+        mRecyclerView.setAdapter(mAdapter);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -36,27 +61,17 @@ public class Cities extends AppCompatActivity {
 
             if(item.getItemId() == R.id.my_reservations_item) {
                 Log.i("TAGG", "reservations clicked");
-                Intent myReservationsIntent = new Intent(Cities.this, MyReservationsActivity.class);
+                Intent myReservationsIntent = new Intent(ParkingPlaces.this, MyReservationsActivity.class);
                 myReservationsIntent.putExtra("username", username);
                 startActivity(myReservationsIntent);
             }
             return true;
         });
 
-        Intent intent = getIntent();
-        username = intent.getStringExtra("username");
-
-        List<String> values = Arrays.asList("Крушево", "Охрид", "Скопје" );
-        mRecyclerView = (RecyclerView) findViewById(R.id.list);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new MyAdapter(values, R.layout.my_row, this, image_id, username);
-        mRecyclerView.setAdapter(mAdapter);
-
     }
-    public static String getUsername() {
-        return username;
+    private List<Parking_places> getAllParkingPlaces() {
+        MyDatabase handler = new MyDatabase(ParkingPlaces.this);
+        return handler.getAllParkingPlaces(city);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,5 +87,4 @@ public class Cities extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

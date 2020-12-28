@@ -23,6 +23,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<String> myList;
     private int rowLayout;
     private Context mContext;
+    String username;
+
     int images[];
 
 
@@ -42,9 +44,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ReservationForm.class);
+                intent.putExtra("city", entry);
+                intent.putExtra("username", username);
                 mContext.startActivity(intent);
             }
         });
+
     }
 
 
@@ -53,7 +58,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return myList == null ? 0 : myList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView myName;
         public ImageView Pic;
         public Button button;
@@ -66,10 +71,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    public MyAdapter(List<String> myList, int rowLayout, Context context, int[] images) {
+    public MyAdapter(List<String> myList, int rowLayout, Context context, int[] images, String username) {
         this.myList = myList;
         this.rowLayout = rowLayout;
         this.mContext = context;
         this.images = images;
+        this.username=username;
     }
 }

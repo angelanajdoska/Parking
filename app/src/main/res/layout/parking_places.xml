@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cities">
-
+    tools:context=".ParkingPlaces">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
@@ -17,17 +16,16 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     <TextView
-        android:id="@+id/choose"
+        android:id="@+id/choose2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/my_toolbar"
-        android:text="Изберете град"
+        android:text="Изберете паркинг"
         android:layout_centerHorizontal="true"
         android:textSize="25dp"/>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/choose"
-        android:id="@+id/list"
+        android:layout_below="@+id/choose2"
+        android:id="@+id/parking_places"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

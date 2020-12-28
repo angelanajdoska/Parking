@@ -10,24 +10,23 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Arrays;
-import java.util.List;
-
-public class Cities extends AppCompatActivity {
-
-    public static String username;
-    RecyclerView mRecyclerView;
-    MyAdapter mAdapter;
-    int image_id[] ={R.drawable.krushevo, R.drawable.ohrid, R.drawable.skopje};
+public class Confirmation extends AppCompatActivity {
+    public static String parking, city, latitude, longitude, username, date, time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cities);
+        setContentView(R.layout.confirmation);
+
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
+        parking = intent.getStringExtra("parking");
+        city = intent.getStringExtra("city");
+        date = intent.getStringExtra("date");
+        time = intent.getStringExtra("time");
+        latitude = intent.getStringExtra("latitude");
+        longitude = intent.getStringExtra("longitude");
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -36,28 +35,29 @@ public class Cities extends AppCompatActivity {
 
             if(item.getItemId() == R.id.my_reservations_item) {
                 Log.i("TAGG", "reservations clicked");
-                Intent myReservationsIntent = new Intent(Cities.this, MyReservationsActivity.class);
+                Intent myReservationsIntent = new Intent(Confirmation.this, MyReservationsActivity.class);
                 myReservationsIntent.putExtra("username", username);
                 startActivity(myReservationsIntent);
             }
             return true;
         });
-
-        Intent intent = getIntent();
-        username = intent.getStringExtra("username");
-
-        List<String> values = Arrays.asList("Крушево", "Охрид", "Скопје" );
-        mRecyclerView = (RecyclerView) findViewById(R.id.list);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new MyAdapter(values, R.layout.my_row, this, image_id, username);
-        mRecyclerView.setAdapter(mAdapter);
-
     }
-    public static String getUsername() {
+    public static String getUsername1() {
         return username;
     }
+    public static String getParkingName() {
+        return parking;
+    }
+    public static String getCityName(){ return city;}
+    public static String getMyDate(){ return date;}
+    public static String getMyTime(){ return time;}
+    public static String getLat() {
+        return latitude;
+    }
+    public static String getLong() {
+        return longitude;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -72,5 +72,4 @@ public class Cities extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

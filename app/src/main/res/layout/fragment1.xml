@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmationFragment1">
+
+    <ImageView
+        android:id="@+id/place"
+        android:layout_width="401dp"
+        android:layout_height="283dp"
+        android:src="@drawable/parking_place" />
+
+    <TextView
+        android:id="@+id/confirm1"
+        android:layout_below="@+id/place"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Успешно резервиравте"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/confirm2"
+        android:layout_below="@+id/confirm1"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="паркинг место !"
+        android:textSize="30dp"
+        android:layout_marginBottom="20dp"/>
+    <Button
+        android:id="@+id/navigate"
+        android:layout_below="@+id/confirm2"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Навигација"/>
+    <Button
+        android:id="@+id/qr"
+        android:layout_below="@+id/navigate"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="QR код"/>
+
+</RelativeLayout>
