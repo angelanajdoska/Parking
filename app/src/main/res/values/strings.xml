@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Parking</string>
+    <string name="app_name">Паркинг</string>
     <string-array name="hours">
         <item>00:00-01:00</item>
         <item>01:00-02:00</item>
@@ -26,4 +26,5 @@
         <item>22:00-23:00</item>
         <item>23:00-24:00</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 </resources>

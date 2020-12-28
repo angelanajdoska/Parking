@@ -6,7 +6,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ReservationForm">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        app:title="@string/app_name"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
         <fragment
+            android:layout_below="@id/my_toolbar"
             android:layout_centerInParent="true"
             android:id="@+id/fragment1"
             android:name="com.example.parking.ReservationFormFragment1"

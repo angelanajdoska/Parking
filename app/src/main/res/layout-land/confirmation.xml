@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:gravity="top|center"
         android:orientation="horizontal"
-        tools:context=".ReservationForm">
+    tools:context=".Confirmation">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
@@ -19,20 +19,23 @@
             app:title="@string/app_name"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
         <fragment
-            android:id="@+id/fragment1"
-            android:name="com.example.parking.ReservationFormFragment1"
-            android:layout_width="351dp"
-            android:layout_height="463dp"
-            tools:layout="@layout/reservation_form_fragment1" />
+            android:id="@+id/frag1"
+            class="com.example.parking.ConfirmationFragment1"
+            android:layout_width="312dp"
+            android:layout_height="544dp"
+            android:layout_below="@id/my_toolbar"
+            android:layout_marginRight="20dp"
+            tools:layout="@layout/fragment1" />
 
         <fragment
             android:id="@+id/fragment2"
-            android:name="com.example.parking.ReservationFormFragment2"
-            android:layout_width="365dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="350dp"
-            tools:layout="@layout/reservation_form_fragment2" />
+            class="com.example.parking.ConfirmationFragment2"
+            android:layout_width="370dp"
+            android:layout_height="544dp"
+            android:layout_below="@id/my_toolbar"
+            android:layout_marginLeft="350dp" />
 
     </RelativeLayout>
 </ScrollView>

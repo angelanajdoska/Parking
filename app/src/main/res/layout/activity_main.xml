@@ -1,179 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height = "match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/car"
     tools:context = ".MainActivity">
 
-    <TextView
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:text = "Резервација на паркинг место"
-        android:id = "@+id/textView"
-        android:layout_centerHorizontal = "true"
-        android:textColor="@color/design_default_color_secondary_variant"
-        android:textSize = "25dp" />
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="-596dp"
-        android:src="@drawable/parking" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="688dp"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="@string/app_name" />
 
     <TextView
-        android:id="@+id/login"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="208dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="640dp"
+        android:text="Резервација на паркинг место"
+        android:textColor="@color/white"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="496dp"
+        android:onClick="login"
         android:text="Најави се"
-        android:textColor="@color/design_default_color_secondary_variant"
-        android:textSize="20dp" />
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:id = "@+id/username"
-        android:hint = "Корисничко име"
-        android:focusable = "true"
-        android:textColorHighlight = "@color/black"
-        android:layout_marginTop = "10dp"
-        android:layout_below = "@+id/login"
-        android:layout_alignParentLeft = "true"
-        android:layout_alignParentStart = "true"
-        android:layout_alignParentRight = "true"
-        android:layout_alignParentEnd = "true" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/password"
-        android:layout_below="@+id/username"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/username"
-        android:layout_alignEnd="@+id/username"
-        android:hint="Лозинка" />
     <Button
-        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:onClick="database_check"
-        android:text="Најави се" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:layout_marginTop="12dp"
-        android:text="Доколку немате профил регистрирајте се подолу." />
-
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="440dp"
+        android:layout_marginBottom="424dp"
+        android:onClick="register"
+        android:textColor="@color/white"
         android:text="Регистрирај се"
-        android:textColor="@color/design_default_color_secondary_variant"
-        android:textSize="20dp" />
-
-    <EditText
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:id = "@+id/first_name"
-        android:hint = "Име"
-        android:focusable = "true"
-        android:textColorHighlight = "@color/black"
-        android:layout_marginTop = "10dp"
-        android:layout_below = "@+id/register"
-        android:layout_alignParentLeft = "true"
-        android:layout_alignParentStart = "true"
-        android:layout_alignParentRight = "true"
-        android:layout_alignParentEnd = "true" />
-    <EditText
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:id = "@+id/last_name"
-        android:hint = "Презиме"
-        android:focusable = "true"
-        android:textColorHighlight = "@color/black"
-        android:layout_marginTop = "10dp"
-        android:layout_below = "@+id/first_name"
-        android:layout_alignParentLeft = "true"
-        android:layout_alignParentStart = "true"
-        android:layout_alignParentRight = "true"
-        android:layout_alignParentEnd = "true" />
-    <EditText
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:id = "@+id/address"
-        android:hint = "Адреса на живеење"
-        android:focusable = "true"
-        android:textColorHighlight = "@color/black"
-        android:layout_marginTop = "10dp"
-        android:layout_below = "@+id/last_name"
-        android:layout_alignParentLeft = "true"
-        android:layout_alignParentStart = "true"
-        android:layout_alignParentRight = "true"
-        android:layout_alignParentEnd = "true" />
-    <EditText
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:id = "@+id/number"
-        android:hint = "Телефонски број"
-        android:focusable = "true"
-        android:textColorHighlight = "@color/black"
-        android:layout_marginTop = "10dp"
-        android:layout_below = "@+id/address"
-        android:layout_alignParentLeft = "true"
-        android:layout_alignParentStart = "true"
-        android:layout_alignParentRight = "true"
-        android:layout_alignParentEnd = "true" />
-    <EditText
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:id = "@+id/username1"
-        android:hint = "Корисничко име"
-        android:focusable = "true"
-        android:textColorHighlight = "@color/black"
-        android:layout_marginTop = "10dp"
-        android:layout_below = "@+id/number"
-        android:layout_alignParentLeft = "true"
-        android:layout_alignParentStart = "true"
-        android:layout_alignParentRight = "true"
-        android:layout_alignParentEnd = "true" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/pass"
-        android:layout_below="@+id/username1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/username1"
-        android:layout_alignEnd="@+id/username1"
-        android:hint="Лозинка" />
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pass"
-        android:onClick="database_input"
-        android:text="Регистрирај се" />
-</RelativeLayout>
-</ScrollView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
